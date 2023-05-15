@@ -133,7 +133,7 @@
 
 											<td>${productos1.caducidad}</td>
 											
-											<td>${productos1.id_seccion}</td>
+											<td>${productos1.seccion.nombre}</td>
 
 
 											<!-- actualizar y eliminar -->

@@ -1,6 +1,6 @@
 package DAO;
 
-public class Secciones {
+public class Seccion {
 	private int id;
 	private String nombre;
 	
@@ -16,5 +16,4 @@ public class Secciones {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
 }

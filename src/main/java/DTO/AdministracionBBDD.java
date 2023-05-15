@@ -16,6 +16,7 @@ public class AdministracionBBDD {
 	public ArrayList<Productos> getProductos() throws SQLException {
 		ArrayList<Productos> pruductos = new ArrayList<>();
 		Conector conector = new Conector();
+		SecionesBBDD seccion = new SecionesBBDD();
 		conector.conectar();
 
 		PreparedStatement pSt = conector.getCon().prepareStatement("SELECT * FROM productos");
@@ -29,7 +30,7 @@ public class AdministracionBBDD {
 			pro.setCantidad(resultado.getInt("Cantidad"));
 			pro.setPrecio(resultado.getDouble("cantidad"));
 			pro.setCaducidad(resultado.getDate("caducidad"));
-			pro.setId_seccion(resultado.getInt("id_seccion"));
+			pro.setSeccion(seccion.getsecciones(resultado.getInt("id")));
 			pruductos.add(pro);
 		}
 		pSt.close();
