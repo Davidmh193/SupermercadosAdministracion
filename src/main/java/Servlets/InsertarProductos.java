@@ -47,32 +47,39 @@ public class InsertarProductos extends HttpServlet {
 		double precio = Double.parseDouble(request.getParameter("precio"));
 		String caducidad = request.getParameter("caducidad");
 		Date FechaCaducidad = null;
-		
+		Date hoy =new Date();
 		int desplegable = Integer.parseInt(request.getParameter("Desplegable"));
 		
 		
 		AdministracionBBDD InsertarProducto = new AdministracionBBDD();
-
+		 
+		try {
+	           	FechaCaducidad = new SimpleDateFormat("yyyy-MM-dd").parse(caducidad);
+	           } catch (ParseException e) {
+	               e.printStackTrace();
+	           }
 		
+	     if (precio > 0 && cantidad > 0 && FechaCaducidad.after(hoy)) {
+	            
+	           try {
+	           	InsertarProducto.insertarProductos(codigo,nombre,cantidad,precio,FechaCaducidad,desplegable);
+	           	
+	           	
+	   		} catch (ClassNotFoundException e) {
+	   			// TODO Auto-generated catch block
+	   			e.printStackTrace();
+	   		}
+	   		
+	   		request.getRequestDispatcher("AdministracionSupermercados").forward(request,response);
+	    	 
+	        } else {
+	        
+	        	request.getRequestDispatcher("InsertarProductos.jsp").forward(request,response);
+	        }
+	    
         
 		
-        try {
-        	FechaCaducidad = new SimpleDateFormat("yyyy-MM-dd").parse(caducidad);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-	
-        try {
-        	InsertarProducto.insertarProductos(codigo,nombre,cantidad,precio,FechaCaducidad,desplegable);
-        	
-        	
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		request.getRequestDispatcher("AdministracionSupermercados").forward(request,response);
-
+       
 	}
 
 }

@@ -32,17 +32,17 @@
 <body>
        <div class = "contact-body">
           <div class = "contact-form">
-            <form method="POST" action="InsertarProductos">
+            <form method="POST" action="InsertarProductos" >
               <div style="display: inline-block;" inputs>
                
-                <input  type = "text" class = "form-control" placeholder="codigo"name="codigo">
-                <input  type = "text" class = "form-control" placeholder="nombre"name="nombre">
-                <input  type = "text" class = "form-control" placeholder="cantidad"name="cantidad">
-                <input  type = "text" class = "form-control" placeholder="precio"name="precio">
-                <input  type = "Date" class = "form-control" placeholder="caducidad"name="caducidad">
+                <input  type = "text" class = "form-control" placeholder="codigo"name="codigo" required>
+                <input  type = "text" class = "form-control" placeholder="nombre"name="nombre" required>
+                <input  type = "text" class = "form-control" placeholder="cantidad"name="cantidad" required>
+                <input  type = "text" class = "form-control" placeholder="precio"name="precio" required>
+                <input  type = "Date" class = "form-control" placeholder="caducidad"name="caducidad" required>
 			   
 			
-				<select name="Desplegable">
+				<select name="Desplegable" required>
 							<option value="1">"Alimentacion"</option>
 							<option value="2">Frescos</option>
 							<option value="3">Bazar</option>
