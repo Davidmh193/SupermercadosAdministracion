@@ -35,10 +35,10 @@
             <form method="POST" action="InsertarProductos" >
               <div style="display: inline-block;" inputs>
                
-                <input  type = "text" class = "form-control" placeholder="codigo"name="codigo" required>
+                <input  type = "number" class = "form-control" placeholder="codigo"name="codigo" required>
                 <input  type = "text" class = "form-control" placeholder="nombre"name="nombre" required>
-                <input  type = "text" class = "form-control" placeholder="cantidad"name="cantidad" required>
-                <input  type = "text" class = "form-control" placeholder="precio"name="precio" required>
+                <input  type = "number" class = "form-control" placeholder="cantidad"name="cantidad" required>
+                <input  type = "number" class = "form-control" placeholder="precio"name="precio" required>
                 <input  type = "Date" class = "form-control" placeholder="caducidad"name="caducidad" required>
 			   
 			
