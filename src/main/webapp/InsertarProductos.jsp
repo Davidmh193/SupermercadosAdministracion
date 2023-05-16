@@ -40,7 +40,15 @@
                 <input  type = "text" class = "form-control" placeholder="cantidad"name="cantidad">
                 <input  type = "text" class = "form-control" placeholder="precio"name="precio">
                 <input  type = "Date" class = "form-control" placeholder="caducidad"name="caducidad">
-             
+			   
+			
+				<select name="Desplegable">
+							<option value="1">"Alimentacion"</option>
+							<option value="2">Frescos</option>
+							<option value="3">Bazar</option>
+							<option value="4">Ferreteria</option>
+						</select>
+			</div>
               </div>
               <!--Botn de enviar-->
               <button style=" margin-top:2%" class="learn-more"  type="submit">

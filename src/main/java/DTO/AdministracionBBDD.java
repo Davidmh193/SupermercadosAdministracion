@@ -31,7 +31,7 @@ public class AdministracionBBDD {
 			pro.setCantidad(resultado.getInt("Cantidad"));
 			pro.setPrecio(resultado.getDouble("cantidad"));
 			pro.setCaducidad(resultado.getDate("caducidad"));
-			pro.setSeccion(seccion.getsecciones(resultado.getInt("id")));
+			pro.setSeccion(seccion.getsecciones(resultado.getInt("id_seccion")));
 			pruductos.add(pro);
 		}
 		pSt.close();
@@ -63,20 +63,23 @@ public class AdministracionBBDD {
 
 	}
 	
+	
+	//Inserta productos a la BBDD
 	public void insertarProductos( String codigo, String nombre,
-			int cantidad, double precio, Date fecha ) throws ClassNotFoundException {
+			int cantidad, double precio, Date fecha, int secciones ) throws ClassNotFoundException {
 		try {
 			Conector conector = new Conector();
 			conector.conectar();
 
 			PreparedStatement pSt = conector.getCon().prepareStatement(
-					"INSERT INTO productos (codigo, nombre,cantidad,precio,caducidad ) Values (?,?,?,?,?)");
+					"INSERT INTO productos (codigo, nombre,cantidad,precio,caducidad,id_seccion ) Values (?,?,?,?,?,?)");
 
 			pSt.setString(1, codigo);
 			pSt.setString(2, nombre);
 			pSt.setInt(3, cantidad);
 			pSt.setDouble(4, precio);
 			pSt.setDate(5, new java.sql.Date(fecha.getTime()));
+			pSt.setInt(6, secciones);
 			pSt.execute();
 
 		} catch (SQLException e) {
@@ -84,8 +87,6 @@ public class AdministracionBBDD {
 			e.printStackTrace();
 		}
 	}
-	
-	
 	
 
 }

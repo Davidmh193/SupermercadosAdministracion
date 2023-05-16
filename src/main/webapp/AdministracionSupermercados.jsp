@@ -198,7 +198,7 @@
 								</tbody>
 
 							</table>
-
+<a href="InsertarProductos.jsp" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">InsertarProductos</a>
 						</div>
 
 						<div class="tab-pane fade" id="nav-profile" role="tabpanel"

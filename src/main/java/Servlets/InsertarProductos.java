@@ -47,7 +47,13 @@ public class InsertarProductos extends HttpServlet {
 		double precio = Double.parseDouble(request.getParameter("precio"));
 		String caducidad = request.getParameter("caducidad");
 		Date FechaCaducidad = null;
+		
+		int desplegable = Integer.parseInt(request.getParameter("Desplegable"));
+		
+		
 		AdministracionBBDD InsertarProducto = new AdministracionBBDD();
+
+		
         
 		
         try {
@@ -57,7 +63,9 @@ public class InsertarProductos extends HttpServlet {
         }
 	
         try {
-        	InsertarProducto.insertarProductos(codigo,nombre,cantidad,precio,FechaCaducidad);
+        	InsertarProducto.insertarProductos(codigo,nombre,cantidad,precio,FechaCaducidad,desplegable);
+        	
+        	
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
