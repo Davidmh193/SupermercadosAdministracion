@@ -187,7 +187,7 @@
 													class="fa-solid fa-trash-can fa-lg"></i></a></td>
 
 
-											<td><a href="InsertarClienteAdmin.jsp"><i
+											<td><a href="InsertarProductos.jsp"><i
 													class="fa fa-user-plus"></i></a></td>
 
 										</tr>

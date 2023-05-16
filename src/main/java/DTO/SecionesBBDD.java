@@ -14,8 +14,10 @@ public class SecionesBBDD {
 		Conector conector = new Conector();
 		conector.conectar();
 
-		PreparedStatement pSt = conector.getCon().prepareStatement("SELECT * FROM secciones where id=?");
+		PreparedStatement pSt = conector.getCon().prepareStatement("SELECT * FROM secciones WHERE id = ?");
+		pSt.setInt(1, id);
 		ResultSet resultado = pSt.executeQuery();
+		
 		while (resultado.next()) {
 
 			secci.setId(resultado.getInt("id"));

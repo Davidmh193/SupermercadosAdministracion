@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import DAO.Conector;
 import DAO.Productos;
@@ -60,6 +61,28 @@ public class AdministracionBBDD {
 		conector.cerrar();
 		return supermercado;
 
+	}
+	
+	public void insertarProductos( String codigo, String nombre,
+			int cantidad, double precio, Date fecha ) throws ClassNotFoundException {
+		try {
+			Conector conector = new Conector();
+			conector.conectar();
+
+			PreparedStatement pSt = conector.getCon().prepareStatement(
+					"INSERT INTO productos (codigo, nombre,cantidad,precio,caducidad ) Values (?,?,?,?,?)");
+
+			pSt.setString(1, codigo);
+			pSt.setString(2, nombre);
+			pSt.setInt(3, cantidad);
+			pSt.setDouble(4, precio);
+			pSt.setDate(5, new java.sql.Date(fecha.getTime()));
+			pSt.execute();
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
 	}
 	
 	
