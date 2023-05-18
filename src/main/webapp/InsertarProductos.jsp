@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,6 +32,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<c:if test="${aviso eq 'error'}">
+    <div class="alerta">
+        <div class="alert alert-danger" role="alert">
+          Error! Eso no deberia de haber ocurrido.
+        </div>          
+    </div>
+</c:if>
        <div class = "contact-body">
           <div class = "contact-form">
             <form method="POST" action="InsertarProductos" >

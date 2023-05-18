@@ -158,22 +158,23 @@
    											
    											<form method="POST" action="ModificarAdministracion" class="form">
     											<label for="idhabitacion" class="label">id</label>
-    											<input type="text" id="dnicliente" name="id" required="" class="input">
+    											<input type="text" id="id" name="id" required="" class="input">
     											
 											    <label for="precio" class="label">codigo</label>
-											  	<input type="text" id="nombrecliente" name="codigo" required="" class="input">
+											  	<input type="text" id="codigo" name="codigo" required="" class="input">
 											  	
 											    <label for="password" class="label">nombre</label>
-											    <input type="descripcion" id="apellidocliente" name="nombre" required="" class="input">
+											    <input type="descripcion" id="nombre" name="nombre" required="" class="input">
 											    
-											     <label for="tipohabitacion" class="label">Telefono</label>
-											    <input type="text" id="telefonocliente" name="telefonocliente" required="" class="input">
+											     <label for="tipohabitacion" class="label">cantidad</label>
+											    <input type="number" id="cantidad" name="catidad" required="" class="input">
 											    
-											      <label for="tipohabitacion" class="label">Direccion</label>
-											    <input type="text" id="Direccioncliente" name="Direccioncliente" required="" class="input">
+											      <label for="tipohabitacion" class="label">precio</label>
+											    <input type="text" id="precio" name="precio" required="" class="input">
 											    
-											      <label for="tipohabitacion" class="label">Localidad</label>
-											    <input type="text" id="Localidadcliente" name="Localidadcliente" required="" class="input">
+											      <label for="tipohabitacion" class="label">caducidad</label>
+											    <input type="Date" id="caducidad" name="caducidad" required="" class="input">
+											    
 											    <button type="submit" class="submit">Modificar</button>
   												</form >
   												</div>
@@ -183,7 +184,7 @@
 											</td>
 
 											<td><a
-												href="/Aurorium/EliminarDatos?id=${cliente.dni}&tipo=cliente"><i
+												href="/Pruebas_clase/EliminarProductos?id=${productos1.id}&tipo=productos"><i
 													class="fa-solid fa-trash-can fa-lg"></i></a></td>
 
 

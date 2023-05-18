@@ -88,5 +88,22 @@ public class AdministracionBBDD {
 		}
 	}
 	
+	public void eliminarProducto(String id) throws ClassNotFoundException {
+		String sentencia = "DELETE FROM productos WHERE id=?";
+		try {
+			Conector conector = new Conector();
+			conector.conectar();
+
+			PreparedStatement pSt = conector.getCon().prepareStatement(sentencia);
+			pSt.setString(1, id);
+			pSt.execute();
+			
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
+	}
+	
 
 }

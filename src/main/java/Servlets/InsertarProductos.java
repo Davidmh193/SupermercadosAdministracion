@@ -33,7 +33,11 @@ public class InsertarProductos extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String aviso = null;
+		aviso = request.getParameter("aviso");
+		request.setAttribute("aviso", aviso);
+		request.getRequestDispatcher("InsertarProductos.jsp").forward(request,response);
+
 	}
 
 	/**
@@ -73,8 +77,9 @@ public class InsertarProductos extends HttpServlet {
 	   		request.getRequestDispatcher("AdministracionSupermercados").forward(request,response);
 	    	 
 	        } else {
-	        
-	        	request.getRequestDispatcher("InsertarProductos.jsp").forward(request,response);
+	        	
+	       response.sendRedirect(request.getContextPath() + "/InsertarProductos?aviso=error");
+	      
 	        }
 	    
         
