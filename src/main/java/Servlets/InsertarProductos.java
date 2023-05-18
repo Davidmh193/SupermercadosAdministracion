@@ -55,34 +55,38 @@ public class InsertarProductos extends HttpServlet {
 		int desplegable = Integer.parseInt(request.getParameter("Desplegable"));
 		
 		
+		
 		AdministracionBBDD InsertarProducto = new AdministracionBBDD();
-		 
+		AdministracionBBDD cod = new AdministracionBBDD();	
+		
+		
 		try {
 	           	FechaCaducidad = new SimpleDateFormat("yyyy-MM-dd").parse(caducidad);
 	           } catch (ParseException e) {
 	               e.printStackTrace();
 	           }
 		
-	     if (precio > 0 && cantidad > 0 && FechaCaducidad.after(hoy)) {
-	            
-	           try {
-	           	InsertarProducto.insertarProductos(codigo,nombre,cantidad,precio,FechaCaducidad,desplegable);
-	           	
-	           	
-	   		} catch (ClassNotFoundException e) {
-	   			// TODO Auto-generated catch block
-	   			e.printStackTrace();
-	   		}
-	   		
-	   		request.getRequestDispatcher("AdministracionSupermercados").forward(request,response);
-	    	 
-	        } else {
-	        	
-	       response.sendRedirect(request.getContextPath() + "/InsertarProductos?aviso=error");
-	      
-	        }
-	    
-        
+	
+		
+			     if (precio > 0 && cantidad > 0 && FechaCaducidad.after(hoy) && !cod.verificarCodigo(Integer.parseInt(codigo)) ) {
+			            
+					           try {
+					           	InsertarProducto.insertarProductos(codigo,nombre,cantidad,precio,FechaCaducidad,desplegable);
+					           	
+					           	
+					   		} catch (ClassNotFoundException e) {
+					   			// TODO Auto-generated catch block
+					   			e.printStackTrace();
+					   		}
+					   		
+					   		request.getRequestDispatcher("AdministracionSupermercados").forward(request,response);
+					    	 
+			        } else {
+			        	
+			       response.sendRedirect(request.getContextPath() + "/InsertarProductos?aviso=error");
+			      
+			        }
+			     
 		
        
 	}

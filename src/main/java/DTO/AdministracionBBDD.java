@@ -105,5 +105,30 @@ public class AdministracionBBDD {
 
 	}
 	
+	public boolean verificarCodigo(int codigo) {
+		boolean cod= false;
+		try {
+			
+			Conector conector = new Conector();
+			conector.conectar();
 
-}
+			PreparedStatement pSt = conector.getCon().prepareStatement(
+					"SELECT codigo FROM productos WHERE codigo=?");
+			pSt.setInt(1, codigo);
+		
+			ResultSet resultado = pSt.executeQuery();
+			
+			while( resultado.next()) {
+			cod= true;
+			System.out.println("Funciona");
+			}	
+					
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		
+	return cod;
+
+	}
+	}
