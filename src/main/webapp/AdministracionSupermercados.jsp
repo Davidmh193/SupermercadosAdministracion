@@ -45,6 +45,14 @@
 
 
 	<!--Tablas De administrador-->
+<form method="GET" action="BuscadorProductos" class="form">
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Busca Productos" aria-label="Recipient's username" aria-describedby="basic-addon2" name="buscador">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+  </div>
+</div>
+</form>
 
 	<section id="tabs" class="project-tab"
 		style="margin-top: 30px; margin-bottom: 25%;">
