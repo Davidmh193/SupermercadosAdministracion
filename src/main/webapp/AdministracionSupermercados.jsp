@@ -156,24 +156,27 @@
 										</button>
   											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
    											
-   											<form method="POST" action="ModificarAdministracion" class="form">
+   											<form method="POST" action="ModificarProductos" class="form">
     											<label for="idhabitacion" class="label">id</label>
-    											<input type="text" id="id" name="id" required="" class="input">
+    											<input type="number" id="id" name="id" required="" class="input">
     											
 											    <label for="precio" class="label">codigo</label>
-											  	<input type="text" id="codigo" name="codigo" required="" class="input">
+											  	<input type="number" id="codigo" name="codigo" required="" class="input">
 											  	
 											    <label for="password" class="label">nombre</label>
-											    <input type="descripcion" id="nombre" name="nombre" required="" class="input">
+											    <input type=text id="nombre" name="nombre" required="" class="input">
 											    
 											     <label for="tipohabitacion" class="label">cantidad</label>
-											    <input type="number" id="cantidad" name="catidad" required="" class="input">
+											    <input type="number" id="cantidad" name="cantidad" required="" class="input">
 											    
 											      <label for="tipohabitacion" class="label">precio</label>
-											    <input type="text" id="precio" name="precio" required="" class="input">
+											    <input type="number" id="precio" name="precio" required="" class="input">
 											    
 											      <label for="tipohabitacion" class="label">caducidad</label>
 											    <input type="Date" id="caducidad" name="caducidad" required="" class="input">
+											    
+											      <label for="tipohabitacion" class="label">Seccion</label>
+											    <input type="text" id="caducidad" name="seccion" required="" class="input">
 											    
 											    <button type="submit" class="submit">Modificar</button>
   												</form >

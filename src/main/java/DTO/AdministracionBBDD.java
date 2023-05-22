@@ -131,4 +131,29 @@ public class AdministracionBBDD {
 	return cod;
 
 	}
+	
+	
+	public void modificarProductos(int codigo,String nombre, int cantidad, double precio, Date caducidad, int seccion,
+			int id) throws ClassNotFoundException {
+
+		try {
+			Conector conector = new Conector();
+			conector.conectar();
+
+			PreparedStatement pSt = conector.getCon().prepareStatement(
+					"UPDATE productos SET codigo=? , nombre=?, cantidad=?,precio=?,caducidad=?,id_seccion=?  WHERE id = ?");
+			pSt.setInt(1, codigo);
+			pSt.setString(2, nombre);
+			pSt.setInt(3, cantidad);
+			pSt.setDouble(4, precio);
+			pSt.setDate(5, new java.sql.Date(caducidad.getTime()));
+			pSt.setInt(6, seccion);
+			pSt.setInt(7, id);
+			pSt.execute();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
+	}
 	}
