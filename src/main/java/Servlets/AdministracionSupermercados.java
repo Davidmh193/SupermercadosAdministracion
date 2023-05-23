@@ -36,8 +36,12 @@ public class AdministracionSupermercados extends HttpServlet {
 
 		AdministracionBBDD baseDatos = new AdministracionBBDD();
 		AdministracionBBDD Supermercados1 = new AdministracionBBDD();
+		
 		ArrayList<Productos> pruductos = new ArrayList<Productos>();
 		ArrayList<Supermercados> supermercado = new ArrayList<Supermercados>();
+	
+		
+	
 		
 		try {
 			pruductos= baseDatos.getProductos();
@@ -45,7 +49,10 @@ public class AdministracionSupermercados extends HttpServlet {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}	
+		
+
+		
 		
 		request.setAttribute("pruductos", pruductos);
 		request.setAttribute("supermercado", supermercado);

@@ -45,7 +45,7 @@
 
 
 	<!--Tablas De administrador-->
-<form method="GET" action="PrecioBucadorMax" class="form">
+<form method="GET" action="PrecioBucadorMax" class="form" style="display: inline-block;">
 <div class="input-group mb-3">
   <input type="text" class="form-control" placeholder="Busca Productos" aria-label="Recipient's username" aria-describedby="basic-addon2" name="buscador">
   <div class="input-group-append">
@@ -54,18 +54,18 @@
 </div>
 </form>
   
-  <form method="GET" action="PrecioBucadorMax" class="form">
+  <form method="GET" action="PrecioBucadorMax" class="form" style="display: inline-block;">
 <div class="input-group mb-3">
-  <input type="number" class="form-control" placeholder="Precio maximo" aria-label="Recipient's username" aria-describedby="basic-addon2" name="maximo">
+  <input type="number" class="form-control" placeholder="Precio maximo ↑" aria-label="Recipient's username" aria-describedby="basic-addon2" name="maximo">
   <div class="input-group-append">
     <button class="btn btn-outline-secondary" type="submit">Buscar</button>
   </div>
 </div>
 </form>
 
- <form method="GET" action="PrecioMinimo" class="form">
+ <form method="GET" action="PrecioMinimo" class="form" style="display: inline-block;">
 <div class="input-group mb-3">
-  <input type="number" class="form-control" placeholder="Precio minimo" aria-label="Recipient's username" aria-describedby="basic-addon2" name="minimo">
+  <input type="number" class="form-control" placeholder="Precio minimo ↓" aria-label="Recipient's username" aria-describedby="basic-addon2" name="minimo">
   <div class="input-group-append">
     <button class="btn btn-outline-secondary" type="submit">Buscar</button>
   </div>
@@ -121,7 +121,7 @@
 
 										<th>Id</th>
 
-										<th>Codigo</th>
+										<th><a href="/Pruebas_clase/AdministracionSupermercados">Codigo</th></a>
 
 										<th>Nombre</th>
 
