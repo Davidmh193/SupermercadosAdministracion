@@ -63,6 +63,15 @@
 </div>
 </form>
 
+ <form method="GET" action="PrecioMinimo" class="form">
+<div class="input-group mb-3">
+  <input type="number" class="form-control" placeholder="Precio minimo" aria-label="Recipient's username" aria-describedby="basic-addon2" name="minimo">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+  </div>
+</div>
+</form>
+
 
 
 	<section id="tabs" class="project-tab"
