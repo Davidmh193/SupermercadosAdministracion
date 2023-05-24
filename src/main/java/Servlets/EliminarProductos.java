@@ -34,12 +34,12 @@ public class EliminarProductos extends HttpServlet {
 	
 		AdministracionBBDD AdminProductos= new AdministracionBBDD();
 		
-	
-		
+		int stock = AdminProductos.getCantidad(id);
 		try {
 			switch(tipo) {
 			case "productos":
 				AdminProductos.eliminarProducto(id);
+
 				break;
 		
 			}

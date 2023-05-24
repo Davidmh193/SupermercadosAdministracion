@@ -44,6 +44,7 @@ public class AdministracionSupermercados extends HttpServlet {
 		
 		try {
 			pruductos= baseDatos.getProductos();
+			ProductosSupermercado= baseDatos.getProductosSuper();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

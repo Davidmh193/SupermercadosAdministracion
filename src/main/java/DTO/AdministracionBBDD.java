@@ -220,6 +220,24 @@ public class AdministracionBBDD {
 		}
 	}
 
+	public int getCantidad(String id) {
+	int id1= 0;
+	Conector c = new Conector();
+	c.conectar();
+		
+	try {
+		PreparedStatement pSt = c.getCon().prepareStatement("SELECT cantidad FROM productos WHERE id=?");
+		pSt.setInt(1,Integer.parseInt(id));
+		pSt.execute();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	
+	
+	
+		return 0;
+	}
+
 	
 
 }
