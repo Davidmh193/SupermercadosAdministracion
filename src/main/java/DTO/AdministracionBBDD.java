@@ -8,12 +8,13 @@ import java.util.Date;
 
 import DAO.Conector;
 import DAO.Productos;
+import DAO.ProductosSupermercado;
 import DAO.Supermercados;
 
 public class AdministracionBBDD {
-	
-	//visualiza las cosas en la tabla 
-	
+
+	// visualiza las cosas en la tabla
+
 	public ArrayList<Productos> getProductos() throws SQLException {
 		ArrayList<Productos> pruductos = new ArrayList<>();
 		Conector conector = new Conector();
@@ -39,34 +40,37 @@ public class AdministracionBBDD {
 		return pruductos;
 
 	}
-	
-	
-	//Visualiza los supermercados
-	public ArrayList<Supermercados> getSupermercado() throws SQLException {
+
+	// Visualiza los supermercados
+	public ArrayList<Supermercados> getSupermercado() {
 		ArrayList<Supermercados> supermercado = new ArrayList<>();
 		Conector conector = new Conector();
 		conector.conectar();
 
-		PreparedStatement pSt = conector.getCon().prepareStatement("SELECT * FROM supermercados");
-		ResultSet resultado = pSt.executeQuery();
-		while (resultado.next()) {
-			Supermercados Superm = new Supermercados();
+		try {
+			PreparedStatement pSt = conector.getCon().prepareStatement("SELECT * FROM supermercados");
+			ResultSet resultado = pSt.executeQuery();
+			while (resultado.next()) {
+				Supermercados Superm = new Supermercados();
 
-			Superm.setId(resultado.getInt("id"));
-			Superm.setNombre(resultado.getString("nombre"));
-			
-			supermercado.add(Superm);
+				Superm.setId(resultado.getInt("id"));
+				Superm.setNombre(resultado.getString("nombre"));
+
+				supermercado.add(Superm);
+			}
+			pSt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		pSt.close();
+
 		conector.cerrar();
 		return supermercado;
 
 	}
-	
-	
-	//Inserta productos a la BBDD
-	public void insertarProductos( String codigo, String nombre,
-			int cantidad, double precio, Date fecha, int secciones ) throws ClassNotFoundException {
+
+	// Inserta productos a la BBDD
+	public void insertarProductos(String codigo, String nombre, int cantidad, double precio, Date fecha, int secciones)
+			throws ClassNotFoundException {
 		try {
 			Conector conector = new Conector();
 			conector.conectar();
@@ -87,7 +91,7 @@ public class AdministracionBBDD {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void eliminarProducto(String id) throws ClassNotFoundException {
 		String sentencia = "DELETE FROM productos WHERE id=?";
 		try {
@@ -97,43 +101,41 @@ public class AdministracionBBDD {
 			PreparedStatement pSt = conector.getCon().prepareStatement(sentencia);
 			pSt.setString(1, id);
 			pSt.execute();
-			
+
 		} catch (SQLException e) {
 
 			e.printStackTrace();
 		}
 
 	}
-	
+
 	public boolean verificarCodigo(int codigo) {
-		boolean cod= false;
+		boolean cod = false;
 		try {
-			
+
 			Conector conector = new Conector();
 			conector.conectar();
 
-			PreparedStatement pSt = conector.getCon().prepareStatement(
-					"SELECT codigo FROM productos WHERE codigo=?");
+			PreparedStatement pSt = conector.getCon().prepareStatement("SELECT codigo FROM productos WHERE codigo=?");
 			pSt.setInt(1, codigo);
-		
+
 			ResultSet resultado = pSt.executeQuery();
-			
-			while( resultado.next()) {
-			cod= true;
-			System.out.println("Funciona");
-			}	
-					
+
+			while (resultado.next()) {
+				cod = true;
+				System.out.println("Funciona");
+			}
+
 		} catch (SQLException e) {
 
 			e.printStackTrace();
 		}
-		
-	return cod;
+
+		return cod;
 
 	}
-	
-	
-	public void modificarProductos(int codigo,String nombre, int cantidad, double precio, Date caducidad, int seccion,
+
+	public void modificarProductos(int codigo, String nombre, int cantidad, double precio, Date caducidad, int seccion,
 			int id) throws ClassNotFoundException {
 
 		try {
@@ -156,7 +158,68 @@ public class AdministracionBBDD {
 		}
 
 	}
-	
-	
-	
+
+	public ArrayList<ProductosSupermercado> getProductosSuper() throws SQLException {
+		ArrayList<ProductosSupermercado> ProductosSupermercado = new ArrayList<>();
+		Conector conector = new Conector();
+
+		conector.conectar();
+
+		PreparedStatement pSt = conector.getCon().prepareStatement("SELECT * FROM productos_supermercados");
+		ResultSet resultado = pSt.executeQuery();
+		while (resultado.next()) {
+			ProductosSupermercado pro = new ProductosSupermercado();
+
+			pro.setId(resultado.getInt("id"));
+			pro.setId_productos(resultado.getInt("id_producto"));
+			pro.setId_supermercado(resultado.getInt("id_supermercado"));
+			ProductosSupermercado.add(pro);
+		}
+		pSt.close();
+		conector.cerrar();
+		return ProductosSupermercado;
+
 	}
+	
+	public int getUltimaId() {
+		int id = 0;
+		Conector c = new Conector();
+		c.conectar();
+		
+		try {
+			PreparedStatement pSt = c.getCon().prepareStatement("SELECT max(id) FROM productos");
+			ResultSet resultado = pSt.executeQuery();
+			resultado.next();
+			id = resultado.getInt(1);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		c.cerrar();
+		return id;
+	}
+
+	public void insertarProductosSuper(int producto, String[] supermercados) throws ClassNotFoundException {
+		try {
+			Conector conector = new Conector();
+			conector.conectar();
+
+			PreparedStatement pSt = conector.getCon().prepareStatement(
+					"INSERT INTO productos_supermercados (id_producto, id_supermercado) Values (?,?)");
+			pSt.setInt(1, producto);
+
+			for (String supermercado : supermercados) {
+				pSt.setString(2, supermercado);
+				pSt.execute();
+			}
+
+			conector.cerrar();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+	}
+
+	
+
+}

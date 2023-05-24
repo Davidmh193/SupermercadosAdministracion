@@ -34,7 +34,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <!-- Js -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <!--Boostrap-->
+<!--Boostrap-->
 <script
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script
@@ -45,32 +45,41 @@
 
 
 	<!--Tablas De administrador-->
-<form method="GET" action="PrecioBucadorMax" class="form" style="display: inline-block;">
-<div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="Busca Productos" aria-label="Recipient's username" aria-describedby="basic-addon2" name="buscador">
-  <div class="input-group-append">
-    <button class="btn btn-outline-secondary" type="submit">Buscar</button>
-  </div>
-</div>
-</form>
-  
-  <form method="GET" action="PrecioBucadorMax" class="form" style="display: inline-block;">
-<div class="input-group mb-3">
-  <input type="number" class="form-control" placeholder="Precio maximo ↑" aria-label="Recipient's username" aria-describedby="basic-addon2" name="maximo">
-  <div class="input-group-append">
-    <button class="btn btn-outline-secondary" type="submit">Buscar</button>
-  </div>
-</div>
-</form>
+	<form method="GET" action="PrecioBucadorMax" class="form"
+		style="display: inline-block;">
+		<div class="input-group mb-3">
+			<input type="text" class="form-control" placeholder="Busca Productos"
+				aria-label="Recipient's username" aria-describedby="basic-addon2"
+				name="buscador">
+			<div class="input-group-append">
+				<button class="btn btn-outline-secondary" type="submit">Buscar</button>
+			</div>
+		</div>
+	</form>
 
- <form method="GET" action="PrecioMinimo" class="form" style="display: inline-block;">
-<div class="input-group mb-3">
-  <input type="number" class="form-control" placeholder="Precio minimo ↓" aria-label="Recipient's username" aria-describedby="basic-addon2" name="minimo">
-  <div class="input-group-append">
-    <button class="btn btn-outline-secondary" type="submit">Buscar</button>
-  </div>
-</div>
-</form>
+	<form method="GET" action="PrecioBucadorMax" class="form"
+		style="display: inline-block;">
+		<div class="input-group mb-3">
+			<input type="number" class="form-control"
+				placeholder="Precio maximo ↑" aria-label="Recipient's username"
+				aria-describedby="basic-addon2" name="maximo">
+			<div class="input-group-append">
+				<button class="btn btn-outline-secondary" type="submit">Buscar</button>
+			</div>
+		</div>
+	</form>
+
+	<form method="GET" action="PrecioMinimo" class="form"
+		style="display: inline-block;">
+		<div class="input-group mb-3">
+			<input type="number" class="form-control"
+				placeholder="Precio minimo ↓" aria-label="Recipient's username"
+				aria-describedby="basic-addon2" name="minimo">
+			<div class="input-group-append">
+				<button class="btn btn-outline-secondary" type="submit">Buscar</button>
+			</div>
+		</div>
+	</form>
 
 
 
@@ -89,17 +98,13 @@
 
 							<a class="nav-item nav-link active" id="nav-home-tab"
 								data-toggle="tab" href="#nav-home" role="tab"
-								aria-controls="nav-home" aria-selected="true">Productos
-
-								</a> <a class="nav-item nav-link" id="nav-profile-tab"
-								data-toggle="tab" href="#nav-profile" role="tab"
-								aria-controls="nav-profile" aria-selected="false">Supermercados
-
-								</a> <a class="nav-item nav-link" id="nav-contact-tab"
-								data-toggle="tab" href="#nav-contact" role="tab"
-								aria-controls="nav-contact" aria-selected="false">Secciones
-
-								</a>
+								aria-controls="nav-home" aria-selected="true">Productos </a> <a
+								class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
+								href="#nav-profile" role="tab" aria-controls="nav-profile"
+								aria-selected="false">Supermercados </a> <a
+								class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
+								href="#nav-contact" role="tab" aria-controls="nav-contact"
+								aria-selected="false">Secciones </a>
 
 						</div>
 
@@ -121,7 +126,8 @@
 
 										<th>Id</th>
 
-										<th><a href="/Pruebas_clase/AdministracionSupermercados">Codigo</th></a>
+										<th><a href="/Pruebas_clase/AdministracionSupermercados">Codigo</th>
+										</a>
 
 										<th>Nombre</th>
 
@@ -130,7 +136,7 @@
 										<th>Precio</th>
 
 										<th>Caducidad</th>
-										
+
 										<th>Seccion</th>
 
 										<th>Modificar</th>
@@ -160,58 +166,61 @@
 											<td>${productos1.precio}</td>
 
 											<td>${productos1.caducidad}</td>
-											
+
 											<td>${productos1.seccion.nombre}</td>
 
 
 											<!-- actualizar y eliminar -->
 
-									<td>
-											<div class="dropdown">
-  										<button class="continue-application" id="dropdownMenuButton" data-toggle="dropdown">
-										    <div>
-										        <div class="pencil"></div>
-										        <div class="folder">
-										            <div class="top">
-										                <svg viewBox="0 0 24 27">
-										                    <path d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19.5522847,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z"></path>
+											<td>
+												<div class="dropdown">
+													<button class="continue-application"
+														id="dropdownMenuButton" data-toggle="dropdown">
+														<div>
+															<div class="pencil"></div>
+															<div class="folder">
+																<div class="top">
+																	<svg viewBox="0 0 24 27">
+										                    <path
+																			d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19.5522847,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z"></path>
 										                </svg>
-										            </div>
-										            <div class="paper"></div>
-										        </div>
-										    </div>
-										Modificar
-										</button>
-  											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-   											
-   											<form method="POST" action="ModificarProductos" class="form">
-    											<label for="idhabitacion" class="label">id</label>
-    											<input type="number" id="id" name="id" required="" class="input">
-    											
-											    <label for="precio" class="label">codigo</label>
-											  	<input type="number" id="codigo" name="codigo" required="" class="input">
-											  	
-											    <label for="password" class="label">nombre</label>
-											    <input type=text id="nombre" name="nombre" required="" class="input">
-											    
-											     <label for="tipohabitacion" class="label">cantidad</label>
-											    <input type="number" id="cantidad" name="cantidad" required="" class="input">
-											    
-											      <label for="tipohabitacion" class="label">precio</label>
-											    <input type="number" id="precio" name="precio" required="" class="input">
-											    
-											      <label for="tipohabitacion" class="label">caducidad</label>
-											    <input type="Date" id="caducidad" name="caducidad" required="" class="input">
-											    
-											      <label for="tipohabitacion" class="label">Seccion</label>
-											    <input type="text" id="caducidad" name="seccion" required="" class="input">
-											    
-											    <button type="submit" class="submit">Modificar</button>
-  												</form >
-  												</div>
+																</div>
+																<div class="paper"></div>
+															</div>
+														</div>
+														Modificar
+													</button>
+													<div class="dropdown-menu"
+														aria-labelledby="dropdownMenuButton">
+
+														<form method="POST" action="ModificarProductos"
+															class="form">
+															<label for="idhabitacion" class="label">id</label> <input
+																type="number" id="id" name="id" required=""
+																class="input"> <label for="precio" class="label">codigo</label>
+															<input type="number" id="codigo" name="codigo"
+																required="" class="input"> <label for="password"
+																class="label">nombre</label> <input type=text
+																id="nombre" name="nombre" required="" class="input">
+
+															<label for="tipohabitacion" class="label">cantidad</label>
+															<input type="number" id="cantidad" name="cantidad"
+																required="" class="input"> <label
+																for="tipohabitacion" class="label">precio</label> <input
+																type="number" id="precio" name="precio" required=""
+																class="input"> <label for="tipohabitacion"
+																class="label">caducidad</label> <input type="Date"
+																id="caducidad" name="caducidad" required=""
+																class="input"> <label for="tipohabitacion"
+																class="label">Seccion</label> <input type="text"
+																id="caducidad" name="seccion" required="" class="input">
+
+															<button type="submit" class="submit">Modificar</button>
+														</form>
+													</div>
 												</div>
-											
-											
+
+
 											</td>
 
 											<td><a
@@ -219,7 +228,7 @@
 													class="fa-solid fa-trash-can fa-lg"></i></a></td>
 
 
-											<td><a href="InsertarProductos.jsp"><i
+											<td><a href="InsertarProducto"><i
 													class="fa fa-user-plus"></i></a></td>
 
 										</tr>
@@ -230,7 +239,9 @@
 								</tbody>
 
 							</table>
-<a href="InsertarProductos.jsp" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">InsertarProductos</a>
+							<a href="InsertarProductos.jsp"
+								class="btn btn-primary btn-lg active" role="button"
+								aria-pressed="true">InsertarProductos</a>
 						</div>
 
 						<div class="tab-pane fade" id="nav-profile" role="tabpanel"
@@ -248,7 +259,7 @@
 										<th>Id</th>
 
 										<th>Nombre Supermercado</th>
-										
+
 										<th>Modificar</th>
 
 										<th>Eliminar</th>
@@ -268,44 +279,52 @@
 
 											<td>${supermercado2.nombre}</td>
 
-										
+
 											<!-- actualizar y eliminar -->
 
 											<td>
-											<div class="dropdown">
-  										<button class="continue-application" id="dropdownMenuButton" data-toggle="dropdown">
-										    <div>
-										        <div class="pencil"></div>
-										        <div class="folder">
-										            <div class="top">
-										                <svg viewBox="0 0 24 27">
-										                    <path d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19.5522847,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z"></path>
+												<div class="dropdown">
+													<button class="continue-application"
+														id="dropdownMenuButton" data-toggle="dropdown">
+														<div>
+															<div class="pencil"></div>
+															<div class="folder">
+																<div class="top">
+																	<svg viewBox="0 0 24 27">
+										                    <path
+																			d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19.5522847,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z"></path>
 										                </svg>
-										            </div>
-										            <div class="paper"></div>
-										        </div>
-										    </div>
-										Modificar
-										</button>
-  											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-   											<form method="POST" action="ModificarActiviades" class="form">
-    											<label for="idhabitacion" class="label">Nombre Actividad</label>
-    											<input type="text" id="username" name="NombreActividad" required="" class="input">
-    											
-											    <label for="precio" class="label">Codigo Actividad</label>
-											  	<input type="text" id="email" name="CodigoActividad" required="" class="input">
-											  	
-											    <label for="password" class="label">Participantes</label>
-											    <input type="descripcion" id="password" name="Participantes" required="" class="input">
-											    
-											     <label for="tipohabitacion" class="label">PrecioActividad</label>
-											    <input type="text" id="username" name="PrecioActividad" required="" class="input">
-											    
-											    <button type="submit" class="submit">Modificar</button>
-  												</form>
-  												</div>
+																</div>
+																<div class="paper"></div>
+															</div>
+														</div>
+														Modificar
+													</button>
+													<div class="dropdown-menu"
+														aria-labelledby="dropdownMenuButton">
+														<form method="POST" action="ModificarActiviades"
+															class="form">
+															<label for="idhabitacion" class="label">Nombre
+																Actividad</label> <input type="text" id="username"
+																name="NombreActividad" required="" class="input">
+
+															<label for="precio" class="label">Codigo
+																Actividad</label> <input type="text" id="email"
+																name="CodigoActividad" required="" class="input">
+
+															<label for="password" class="label">Participantes</label>
+															<input type="descripcion" id="password"
+																name="Participantes" required="" class="input">
+
+															<label for="tipohabitacion" class="label">PrecioActividad</label>
+															<input type="text" id="username" name="PrecioActividad"
+																required="" class="input">
+
+															<button type="submit" class="submit">Modificar</button>
+														</form>
+													</div>
 												</div>
-											
+
 											</td>
 
 
@@ -314,8 +333,7 @@
 													class="fa-solid fa-trash-can fa-lg"></i></a></td>
 
 
-											<td><a
-												href="InsertarActividades.jsp"><i
+											<td><a href="InsertarActividades.jsp"><i
 													class="fa fa-user-plus"></i></a></td>
 
 										</tr>
@@ -342,13 +360,11 @@
 
 										<!-- Gestionar Clases -->
 
-										<th>Id habitacion</th>
+										<th>Id</th>
 
-										<th>Precio</th>
+										<th>Id producto</th>
 
-										<th>Descripcion</th>
-
-										<th>Tipo habitacion</th>
+										<th>Id Supermercado</th>
 
 										<th>Modificar</th>
 
@@ -362,69 +378,65 @@
 
 								<tbody>
 
-									<c:forEach items="${habitaciones1}" var="habitaciones2">
+									<c:forEach items="${ProductosSupermercado}" var="productoSuper">
 										<tr>
 
-											<td>${habitaciones2.idhabitaciones}</td>
+											<td>${productoSuper.id}</td>
 
-											<td>${habitaciones2.precio}</td>
+											<td>${productoSuper.id_productos}</td>
 
-											<td>${habitaciones2.descripcion}</td>
+											<td>${productoSuper.id_supermercado}</td>
 
-											<td>${habitaciones2.tipohabitacion}</td>
+
 
 											<!-- actualizar y eliminar -->
 
 
 											<td>
-											<div class="dropdown">
-  										<button class="continue-application" id="dropdownMenuButton" data-toggle="dropdown">
-										    <div>
-										        <div class="pencil"></div>
-										        <div class="folder">
-										            <div class="top">
-										                <svg viewBox="0 0 24 27">
-										                    <path d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19.5522847,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z"></path>
+												<div class="dropdown">
+													<button class="continue-application"
+														id="dropdownMenuButton" data-toggle="dropdown">
+														<div>
+															<div class="pencil"></div>
+															<div class="folder">
+																<div class="top">
+																	<svg viewBox="0 0 24 27">
+										                    <path
+																			d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19.5522847,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z"></path>
 										                </svg>
-										            </div>
-										            <div class="paper"></div>
-										        </div>
-										    </div>
-										Modificar
-										</button>
-  											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-   											<form method="POST" action="ModificarHabitaciones" class="form">
-    											<label for="idhabitacion" class="label">Id habitacion</label>
-    											<input type="text" id="username" name="idhabitacion" required="" class="input">
-    											
-											    <label for="precio" class="label">Precio</label>
-											  	<input type="text" id="email" name="precio" required="" class="input">
-											  	
-											    <label for="password" class="label">Descripcion</label>
-											    <input type="descripcion" id="password" name="descripcion" required="" class="input">
-											    
-											     <label for="tipohabitacion" class="label">Tipo</label>
-											    <input type="text" id="username" name="tipohabitacion" required="" class="input">
-											    
-											    <button type="submit" class="submit">Modificar</button>
-  												</form>
-  												</div>
-												</div>
-											
-											
-											</td>
-													
+																</div>
+																<div class="paper"></div>
+															</div>
+														</div>
+														Modificar
+													</button>
+													<div class="dropdown-menu"
+														aria-labelledby="dropdownMenuButton">
+														<form method="POST" action="ModificarHabitaciones"
+															class="form">
+															<label for="idhabitacion" class="label">Id </label> <input
+																type="text" id="username" name="id" required=""
+																class="input"> <label for="precio" class="label">Id
+																producto</label> <input type="text" id="email"
+																name="id_producto" required="" class="input"> <label
+																for="password" class="label">Id super</label> <input
+																type="descripcion" id="password" name="id_supermercado"
+																required="" class="input">
 
+
+															<button type="submit" class="submit">Modificar</button>
+														</form>
+													</div>
+												</div>
+
+											</td>
 
 											<td><a
-												href="/Aurorium/EliminarDatos?id=${habitaciones2.idhabitaciones}&tipo=habitaciones"><i
+												href="/Aurorium/EliminarDatos?id=${productoSuper.id}&tipo=habitaciones"><i
 													class="fa-solid fa-trash-can fa-lg"></i></a></td>
 
-
-											<td><a
-												href="InsertarClientes${habitaciones2.idhabitaciones}"><i
+											<td><a href="InsertarProductosSuper"><i
 													class="fa fa-user-plus"></i></a></td>
-
 										</tr>
 
 									</c:forEach>
@@ -448,6 +460,6 @@
 
 
 
-	
+
 </body>
 </html>

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.Productos;
+import DAO.ProductosSupermercado;
 import DAO.Supermercados;
 import DTO.AdministracionBBDD;
 
@@ -35,17 +36,14 @@ public class AdministracionSupermercados extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		AdministracionBBDD baseDatos = new AdministracionBBDD();
-		AdministracionBBDD Supermercados1 = new AdministracionBBDD();
 		
 		ArrayList<Productos> pruductos = new ArrayList<Productos>();
-		ArrayList<Supermercados> supermercado = new ArrayList<Supermercados>();
-	
+		ArrayList<ProductosSupermercado> ProductosSupermercado = new ArrayList<ProductosSupermercado>();
 		
 	
 		
 		try {
 			pruductos= baseDatos.getProductos();
-			supermercado= Supermercados1.getSupermercado();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -53,9 +51,8 @@ public class AdministracionSupermercados extends HttpServlet {
 		
 
 		
-		
+		request.setAttribute("ProductosSupermercado", ProductosSupermercado);
 		request.setAttribute("pruductos", pruductos);
-		request.setAttribute("supermercado", supermercado);
 		
 		request.getRequestDispatcher("AdministracionSupermercados.jsp").forward(request,response);
 	}
