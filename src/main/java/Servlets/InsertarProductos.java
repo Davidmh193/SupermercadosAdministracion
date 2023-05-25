@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DAO.Seccion;
 import DAO.Supermercados;
 import DTO.AdministracionBBDD;
 
@@ -39,8 +40,12 @@ public class InsertarProductos extends HttpServlet {
 		AdministracionBBDD baseDatos = new AdministracionBBDD();
 		String aviso = null;
 		aviso = request.getParameter("aviso");
+		
+		
 		ArrayList<Supermercados> supermercados = baseDatos.getSupermercado();
+		ArrayList<Seccion> secciones = baseDatos.getSecciones();		
 		request.setAttribute("aviso", aviso);
+		request.setAttribute("secciones", secciones);
 		request.setAttribute("supermercados", supermercados);
 		request.getRequestDispatcher("InsertarProductos.jsp").forward(request, response);
 

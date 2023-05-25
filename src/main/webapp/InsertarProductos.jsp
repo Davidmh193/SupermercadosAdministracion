@@ -52,15 +52,16 @@
 						class="form-control" placeholder="precio" name="precio" required>
 					<input type="Date" class="form-control" placeholder="caducidad"
 						name="caducidad" required>
-					<!--  -->
+						
+					<!--Desplegable movil  -->
 					<select name="Desplegable" required>
-						<option value="1">"Alimentacion"</option>
-						<option value="2">Frescos</option>
-						<option value="3">Bazar</option>
-						<option value="4">Ferreteria</option>
+					<c:forEach items="${secciones}" var="seccion">
+						<option value="${seccion.id}">${seccion.nombre}</option>
+					</c:forEach>
 					</select>
+					
 
-					<!--  -->
+					<!--Check box  -->
 					<c:forEach items="${supermercados}" var="supermercado">
 						<div class="form-check">
 							<input class="form-check-input" type="checkbox"
@@ -71,6 +72,7 @@
 						</div>
 					</c:forEach>
 				</div>
+				
 				<!--Botn de enviar-->
 				<button style="margin-top: 2%" class="learn-more" type="submit">
 					<span class="circle" aria-hidden="true"> <span

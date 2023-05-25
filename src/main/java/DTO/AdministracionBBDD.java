@@ -9,6 +9,7 @@ import java.util.Date;
 import DAO.Conector;
 import DAO.Productos;
 import DAO.ProductosSupermercado;
+import DAO.Seccion;
 import DAO.Supermercados;
 
 public class AdministracionBBDD {
@@ -290,6 +291,30 @@ public class AdministracionBBDD {
 	    
 	    c.cerrar();
 	}
+	public ArrayList<Seccion> getSecciones() {
+		ArrayList<Seccion> secciones = new ArrayList<>();
+		Conector conector = new Conector();
+		conector.conectar();
 
+		try {
+			PreparedStatement pSt = conector.getCon().prepareStatement("SELECT * FROM secciones");
+			ResultSet resultado = pSt.executeQuery();
+			while (resultado.next()) {
+				Seccion sec = new Seccion();
+
+				sec.setId(resultado.getInt("id"));
+				sec.setNombre(resultado.getString("nombre"));
+
+				secciones.add(sec);
+			}
+			pSt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		conector.cerrar();
+		return secciones;
+
+	}
 
 }
