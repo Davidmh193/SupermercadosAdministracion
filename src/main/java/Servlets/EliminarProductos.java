@@ -28,25 +28,40 @@ public class EliminarProductos extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
-		String tipo = request.getParameter("tipo");
-	
-		AdministracionBBDD AdminProductos= new AdministracionBBDD();
-		
-		int stock = AdminProductos.getCantidad(id);
-		try {
-			switch(tipo) {
-			case "productos":
-				AdminProductos.eliminarProducto(id);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id = request.getParameter("id");
+        String tipo = request.getParameter("tipo");
 
-				break;
-		
-			}
-		} catch (Exception e) {
-		}
-		response.sendRedirect(request.getContextPath()+"/AdministracionSupermercados");
-	}
+        AdministracionBBDD AdminProductos = new AdministracionBBDD();
+
+        try {
+            switch (tipo) {
+                case "productos":
+                    int cantidad = AdminProductos.obtenerCantidadProducto(id);
+
+                    if (cantidad > 0) {
+                        // Disminuir la cantidad del producto
+                        AdminProductos.disminuirCantidadProducto(id);
+                    } else {
+                        boolean productoEnSupermercados = AdminProductos.verificarProductoEnSupermercados(id);
+
+                        if (productoEnSupermercados) {
+                            // Eliminar el producto de los supermercados pero no de la tabla de productos
+                            AdminProductos.eliminarProductoDeSupermercados(id);
+                        } else {
+                            // Eliminar el producto de la BBDD
+                            AdminProductos.eliminarProducto(id);
+                        }
+                    }
+
+                    break;
+            }
+        } catch (Exception e) {
+         
+        }
+        response.sendRedirect(request.getContextPath() + "/AdministracionSupermercados");
+    }
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

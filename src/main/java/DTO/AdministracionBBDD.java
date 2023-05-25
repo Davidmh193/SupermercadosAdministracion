@@ -182,62 +182,114 @@ public class AdministracionBBDD {
 	}
 	
 	public int getUltimaId() {
-		int id = 0;
-		Conector c = new Conector();
-		c.conectar();
-		
-		try {
-			PreparedStatement pSt = c.getCon().prepareStatement("SELECT max(id) FROM productos");
-			ResultSet resultado = pSt.executeQuery();
-			resultado.next();
-			id = resultado.getInt(1);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		c.cerrar();
-		return id;
+	    int id = 0;
+	    Conector c = new Conector();
+	    c.conectar();
+	    
+	    try {
+	        PreparedStatement pSt = c.getCon().prepareStatement("SELECT max(id) FROM productos");
+	        ResultSet resultado = pSt.executeQuery();
+	        resultado.next();
+	        id = resultado.getInt(1);
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    
+	    c.cerrar();
+	    return id;
 	}
 
 	public void insertarProductosSuper(int producto, String[] supermercados) throws ClassNotFoundException {
-		try {
-			Conector conector = new Conector();
-			conector.conectar();
+	    try {
+	        Conector conector = new Conector();
+	        conector.conectar();
 
-			PreparedStatement pSt = conector.getCon().prepareStatement(
-					"INSERT INTO productos_supermercados (id_producto, id_supermercado) Values (?,?)");
-			pSt.setInt(1, producto);
+	        PreparedStatement pSt = conector.getCon().prepareStatement(
+	                "INSERT INTO productos_supermercados (id_producto, id_supermercado) VALUES (?, ?)");
+	        pSt.setInt(1, producto);
 
-			for (String supermercado : supermercados) {
-				pSt.setString(2, supermercado);
-				pSt.execute();
-			}
+	        for (String supermercado : supermercados) {
+	            pSt.setString(2, supermercado);
+	            pSt.execute();
+	        }
 
-			conector.cerrar();
-		} catch (SQLException e) {
-
-			e.printStackTrace();
-		}
+	        conector.cerrar();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
 	}
 
-	public int getCantidad(String id) {
-	int id1= 0;
-	Conector c = new Conector();
-	c.conectar();
-		
-	try {
-		PreparedStatement pSt = c.getCon().prepareStatement("SELECT cantidad FROM productos WHERE id=?");
-		pSt.setInt(1,Integer.parseInt(id));
-		pSt.execute();
-	} catch (Exception e) {
-		e.printStackTrace();
-	}
-	
-	
-	
-		return 0;
+	public int obtenerCantidadProducto(String id) {
+	    Conector c = new Conector();
+	    c.conectar();
+	    int cantidad = 0;
+	    
+	    try {
+	        PreparedStatement pSt = c.getCon().prepareStatement("SELECT cantidad FROM productos WHERE id=?");
+	        pSt.setInt(1, Integer.parseInt(id));
+	        ResultSet resultado = pSt.executeQuery();
+	        
+	        if (resultado.next()) {
+	            cantidad = resultado.getInt("cantidad");
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    
+	    c.cerrar();
+	    return cantidad;
 	}
 
+	public void disminuirCantidadProducto(String id) {
+	    Conector c = new Conector();
+	    c.conectar();
+	    
+	    try {
+	        PreparedStatement pSt = c.getCon().prepareStatement("UPDATE productos SET cantidad = cantidad - 1 WHERE id = ?");
+	        pSt.setInt(1, Integer.parseInt(id));
+	        pSt.executeUpdate();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    
+	    c.cerrar();
+	}
 	
+	public boolean verificarProductoEnSupermercados(String id) {
+	    Conector c = new Conector();
+	    c.conectar();
+	    boolean productoEnSupermercados = false;
+	    
+	    try {
+	        PreparedStatement pSt = c.getCon().prepareStatement(
+	                "SELECT id_producto FROM productos_supermercados WHERE id_producto = ?");
+	        pSt.setInt(1, Integer.parseInt(id));
+	        ResultSet resultado = pSt.executeQuery();
+	        
+	        productoEnSupermercados = resultado.next();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    
+	    c.cerrar();
+	    return productoEnSupermercados;
+	}
+
+	public void eliminarProductoDeSupermercados(String id) {
+	    Conector c = new Conector();
+	    c.conectar();
+	    
+	    try {
+	        PreparedStatement pSt = c.getCon().prepareStatement(
+	                "DELETE FROM productos_supermercados WHERE id_producto = ?");
+	        pSt.setInt(1, Integer.parseInt(id));
+	        pSt.executeUpdate();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    
+	    c.cerrar();
+	}
+
 
 }
