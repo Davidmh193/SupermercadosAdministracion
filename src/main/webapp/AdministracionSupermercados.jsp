@@ -122,12 +122,12 @@
 
 									<tr>
 
-										<!-- Gestionar Clientes -->
+									
 
 										<th>Id</th>
 
-										<th><a href="/Pruebas_clase/AdministracionSupermercados">Codigo</th>
-										</a>
+										<th>Codigo | <a href="/Pruebas_clase/OrdenarAscenDes?orden=asc">Ascendente | </a><a href="/Pruebas_clase/OrdenarAscenDes?orden=desc">Descendente</a>
+									</th>
 
 										<th>Nombre</th>
 

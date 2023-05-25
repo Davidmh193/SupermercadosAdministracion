@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import DAO.Productos;
 import DAO.ProductosSupermercado;
-import DAO.Supermercados;
 import DTO.AdministracionBBDD;
 
 /**
@@ -40,7 +39,6 @@ public class AdministracionSupermercados extends HttpServlet {
 		ArrayList<Productos> pruductos = new ArrayList<Productos>();
 		ArrayList<ProductosSupermercado> ProductosSupermercado = new ArrayList<ProductosSupermercado>();
 		
-	
 		
 		try {
 			pruductos= baseDatos.getProductos();
@@ -49,7 +47,6 @@ public class AdministracionSupermercados extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
-		
 
 		
 		request.setAttribute("ProductosSupermercado", ProductosSupermercado);
