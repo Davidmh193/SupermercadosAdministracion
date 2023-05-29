@@ -61,7 +61,7 @@ public class InsertarProductos extends HttpServlet {
 		AdministracionBBDD bbdd = new AdministracionBBDD();
 
 		//Datos producto
-		String codigo = request.getParameter("codigo");
+		String codigo = (request.getParameter("codigo"));
 		String nombre = request.getParameter("nombre");
 		int cantidad = Integer.parseInt(request.getParameter("cantidad"));
 		double precio = Double.parseDouble(request.getParameter("precio"));

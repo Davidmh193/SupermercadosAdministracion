@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import DAO.Productos;
 import DAO.ProductosSupermercado;
+import DAO.Seccion;
+import DAO.Supermercados;
 import DTO.AdministracionBBDD;
 
 /**
@@ -33,9 +35,17 @@ public class AdministracionSupermercados extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		AdministracionBBDD baseDatos = new AdministracionBBDD();
+		//Pinta los check box
+		AdministracionBBDD baseDatoss = new AdministracionBBDD();
 		
+		ArrayList<Supermercados> supermercados = baseDatoss.getSupermercado();
+		ArrayList<Seccion> secciones = baseDatoss.getSecciones();		
+	
+		request.setAttribute("secciones", secciones);
+		request.setAttribute("supermercados", supermercados);
+		
+		
+		AdministracionBBDD baseDatos = new AdministracionBBDD();
 		ArrayList<Productos> pruductos = new ArrayList<Productos>();
 		ArrayList<ProductosSupermercado> ProductosSupermercado = new ArrayList<ProductosSupermercado>();
 		

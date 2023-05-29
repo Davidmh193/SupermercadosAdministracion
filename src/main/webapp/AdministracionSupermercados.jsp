@@ -197,23 +197,44 @@
 															class="form">
 															<label for="idhabitacion" class="label">id</label> <input
 																type="number" id="id" name="id" required=""
-																class="input"> <label for="precio" class="label">codigo</label>
+																class="input"> 
+																<label for="precio" class="label">codigo</label>
 															<input type="number" id="codigo" name="codigo"
-																required="" class="input"> <label for="password"
-																class="label">nombre</label> <input type=text
+																required="" class="input"> 
+																<label for="password"
+																class="label">nombre</label> 
+																<input type=text
 																id="nombre" name="nombre" required="" class="input">
 
 															<label for="tipohabitacion" class="label">cantidad</label>
 															<input type="number" id="cantidad" name="cantidad"
-																required="" class="input"> <label
+																required="" class="input"> 
+																<label
 																for="tipohabitacion" class="label">precio</label> <input
 																type="number" id="precio" name="precio" required=""
-																class="input"> <label for="tipohabitacion"
-																class="label">caducidad</label> <input type="Date"
+																class="input"> 
+																<label for="tipohabitacion"
+																class="label">caducidad</label> 
+																<input type="Date"
 																id="caducidad" name="caducidad" required=""
-																class="input"> <label for="tipohabitacion"
-																class="label">Seccion</label> <input type="text"
-																id="caducidad" name="seccion" required="" class="input">
+																class="input"> 
+																
+															<select name="Desplegable" required>
+																<c:forEach items="${secciones}" var="seccion">
+																	<option value="${seccion.id}">${seccion.nombre}</option>
+																</c:forEach>
+															</select>
+																
+																<c:forEach items="${supermercados}" var="supermercado">
+																<div class="form-check">
+																	<input class="form-check-input" type="checkbox"
+																		value="${supermercado.id }" id="flexCheckDefault" name="supermercados">
+																	<!--  -->
+																	<label class="form-check-label" for="flexCheckDefault">
+																		${supermercado.nombre} </label>
+																</div>
+															</c:forEach>
+												
 
 															<button type="submit" class="submit">Modificar</button>
 														</form>
