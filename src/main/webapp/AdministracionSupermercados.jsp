@@ -122,7 +122,7 @@
 
 									<tr>
 
-									
+										<th>Check box</th>
 
 										<th>Id</th>
 
@@ -154,7 +154,16 @@
 									<c:forEach items="${pruductos}" var="productos1">
 
 										<tr>
+											<td>
+											<form method="POST" action="EliminarMultipleProductos" class="form">
+											<div class="form-check">
+											  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name ="checkBox">
+											  <label class="form-check-label" for="flexCheckDefault">
+											  </label>
+											  
+											</div>
 
+											</td>
 											<td>${productos1.id}</td>
 
 											<td>${productos1.codigo}</td>
@@ -168,7 +177,7 @@
 											<td>${productos1.caducidad}</td>
 
 											<td>${productos1.seccion.nombre}</td>
-
+											
 
 											<!-- actualizar y eliminar -->
 
@@ -234,7 +243,7 @@
 																		${supermercado.nombre} </label>
 																</div>
 															</c:forEach>
-												
+													
 
 															<button type="submit" class="submit">Modificar</button>
 														</form>
@@ -260,10 +269,8 @@
 								</tbody>
 
 							</table>
-							<a href="InsertarProductos.jsp"
-								class="btn btn-primary btn-lg active" role="button"
-								aria-pressed="true">InsertarProductos</a>
-						</div>
+							<button type="submit" class="submit">Eliminar Multiple</button>
+							</form>
 
 						<div class="tab-pane fade" id="nav-profile" role="tabpanel"
 							aria-labelledby="nav-profile-tab">

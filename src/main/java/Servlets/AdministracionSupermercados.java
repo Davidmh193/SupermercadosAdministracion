@@ -35,7 +35,7 @@ public class AdministracionSupermercados extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//Pinta los check box
+		
 		AdministracionBBDD baseDatoss = new AdministracionBBDD();
 		
 		ArrayList<Supermercados> supermercados = baseDatoss.getSupermercado();

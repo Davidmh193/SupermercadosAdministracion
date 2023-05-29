@@ -342,6 +342,22 @@ public class AdministracionBBDD {
 			}
 		}
 	
+		public void eliminarProductoMultiple(String[] idEliminarMul) throws ClassNotFoundException {
+			String sentencia = "DELETE FROM productos WHERE id=?";
+			try {
+				Conector conector = new Conector();
+				conector.conectar();
 
+				PreparedStatement pSt = conector.getCon().prepareStatement(sentencia);
+				 for (String idmultiple : idEliminarMul) {
+			            pSt.setString(1, idmultiple);
+			            pSt.execute();
+			        }
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
+
+		}
 }
 	
